@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class GreedyCoinChange {
     public static void main(String[] args) {
-        int[] coins = {1, 5, 10, 25}; // Coin denominations (in cents)
+        int[] coins = {1, 5, 10, 25, 50}; // Coin denominations (in cents)
         int targetAmount = 63; // Target amount to make change for (in cents)
 
         int[] change = makeChange(coins, targetAmount);
