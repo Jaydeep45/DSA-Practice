@@ -25,26 +25,20 @@ public class FindArrayWithSumAndProduct {
 
     public static List<Integer> findArrayWithSumAndProduct(int P, int targetSum) {
         List<Integer> array = new ArrayList<>();
-        int remainingProduct = P;
 
         while (targetSum > 0) {
             boolean found = false;
-            for (int candidate = 1; candidate <= 100; candidate++) {
-                int newProduct = remainingProduct / candidate;
+            int candidate = 1;
+            while (true) {
+                int newProduct = P / candidate;
                 int newSum = targetSum - candidate;
 
-                if (newProduct * candidate == remainingProduct && newSum >= 0) {
-                    array.add(candidate);
-                    remainingProduct = newProduct;
-                    targetSum = newSum;
-                    found = true;
-                    break;
-                }
+                array.add(candidate);
+                targetSum = newSum;
+                found = true;
+                break;
             }
 
-            if (!found) {
-                return null; // No such array exists
-            }
         }
 
         return array;
