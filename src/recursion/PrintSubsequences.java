@@ -1,18 +1,20 @@
 package recursion;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PrintSubsequences {
     public static void main(String[] args) {
-        printSubsequences("abc");
+        printSubsequences("abc", new ArrayList<>(), 0);
     }
-    static void printSubsequences(String input) {
-        helper(input.toCharArray(), 0, input.length());
-    }
-    static void helper(char[] input, int i, int n) {
-        if(i >= n) {
-            for(int j = i; j < n; j++)
-                System.out.print(input[i]);
-            System.out.println();
+    static void printSubsequences(String input, List<Character> list, int index) {
+        if(index == input.length()) {
+            list.forEach(System.out::println);
+            return;
         }
-        helper(input, i+1, n);
+        list.add(input.charAt(index));
+        printSubsequences(input, list, index+1);
+        list.remove(input.charAt(index));
+        printSubsequences(input, list, index + 1);
     }
 }

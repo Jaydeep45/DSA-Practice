@@ -5,8 +5,6 @@ public class SumOfDigits {
         int n = 123;
         int res = sumOfDigits(n);
         System.out.println(res);
-        char c = '0';
-        Character.isLetterOrDigit(c);
     }
 
     private static int sumOfDigits(int n) {
